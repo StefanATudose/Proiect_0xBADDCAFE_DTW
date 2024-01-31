@@ -1,13 +1,13 @@
 import numpy as np
 from fastdtw import fastdtw
 from matplotlib import pyplot as plt
-from dtaidistance import dtw, ed
+# from dtaidistance import dtw, ed
 from pyts.metrics import dtw as pyts_dtw
 import sqlite3
 
-file_bible_romanian = 'datasets/bible/cornilescu.sqlite'
-file_bible_english = 'datasets/bible/kjv.sqlite'
-file_bible_luther = 'datasets/bible/luther.sqlite'
+file_bible_romanian = 'cercetare/datasets/bible/cornilescu.sqlite'
+file_bible_english = 'cercetare/datasets/bible/kjv.sqlite'
+file_bible_luther = 'cercetare/datasets/bible/luther.sqlite'
 
 bible_romanian = sqlite3.connect(file_bible_romanian)
 bible_english = sqlite3.connect(file_bible_english)

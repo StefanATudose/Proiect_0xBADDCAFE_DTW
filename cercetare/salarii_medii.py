@@ -8,11 +8,6 @@ file = 'salarii_medii.csv'
 data = reader(open(file, 'r'))
 data = list(data)
 
-# print(data[1][1])
-# print(data[1][5])
-# print(data[1][6])
-# print(data[1][12])
-
 countries = {}
 
 for i in range(1, len(data)):
