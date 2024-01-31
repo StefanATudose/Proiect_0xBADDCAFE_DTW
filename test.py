@@ -17,8 +17,8 @@ from dtaidistance import dtw, dtw_visualisation as dtwvis
 
 t = np.linspace(0, 1, 50)
 
-x1 = np.sin(2*np.pi*800*t + np.pi/4)
-x2 = 2 * np.sin(2*np.pi*800*t)
+x1 = np.sin(2*np.pi*2*t + np.pi/4)
+x2 = 2 * np.sin(2*np.pi*2*t)
 
 
 warp_path = dtw.warping_path(x1, x2, use_c=False)
