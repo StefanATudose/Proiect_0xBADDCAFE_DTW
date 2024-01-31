@@ -3,7 +3,7 @@ from dtaidistance import dtw
 from csv import reader
 from matplotlib import pyplot as plt
 
-file = 'finance_company.csv'
+file = 'cercetare/finance_company.csv'
 
 data = reader(open(file, 'r'))
 

@@ -12,31 +12,18 @@ savefig_options = dict(format="png", dpi=300, bbox_inches="tight")
 
 # Computation packages
 from scipy.spatial.distance import euclidean
-from fastdtw import fastdtw
+from dtaidistance import dtw, dtw_visualisation as dtwvis
 
 
-time1 = np.linspace(start=0, stop=1, num=50)
-time2 = time1[0:40]
+t = np.linspace(0, 1, 50)
 
-x1 = 3 * np.sin(np.pi * time1) + 1.5 * np.sin(4*np.pi * time1)
-x2 = 3 * np.sin(np.pi * time2 + 0.5) + 1.5 * np.sin(4*np.pi * time2 + 0.5)
-
-
-distance, warp_path = fastdtw(x1, x2, dist=2)
+x1 = np.sin(2*np.pi*2*t + np.pi/4)
+x2 = 2 * np.sin(2*np.pi*2*t)
 
 
+warp_path = dtw.warping_path(x1, x2, use_c=False)
 
-fig, ax = plt.subplots(figsize=(16, 12))
 
-# Remove the border and axes ticks
-fig.patch.set_visible(False)
-ax.axis('off')
-
-for [map_x, map_y] in warp_path:
-    ax.plot([map_x, map_y], [x1[map_x], x2[map_y]], '-k')
-
-ax.plot(x1, color='blue', marker='o', markersize=10, linewidth=5)
-ax.plot(x2, color='red', marker='o', markersize=10, linewidth=5)
-ax.tick_params(axis="both", which="major", labelsize=18)
+fig, ax = dtwvis.plot_warping(x1, x2, warp_path)
 
 fig.savefig("ex2_dtw_distance.png", **savefig_options)
